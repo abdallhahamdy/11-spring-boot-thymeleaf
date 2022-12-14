@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luv2code.springboot</groupId>
-	<artifactId>thymeleafdemo-employees-crud-security-with-in-memory-authentication</artifactId>
+	<artifactId>thymeleafdemo-employees-crud-security-with-jdbc-authentication</artifactId>
 	<version>1.0.0</version>
 
 	<properties>
@@ -58,6 +58,7 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+		
 	</dependencies>
 
 	<build>
