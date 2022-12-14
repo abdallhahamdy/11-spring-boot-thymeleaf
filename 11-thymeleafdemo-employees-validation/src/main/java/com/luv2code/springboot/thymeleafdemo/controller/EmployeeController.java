@@ -2,8 +2,11 @@ package com.luv2code.springboot.thymeleafdemo.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -48,7 +51,7 @@ public class EmployeeController {
 		return "employees/employee-form";
 	}
 
-	@PostMapping("/showFormForUpdate")
+	@GetMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
@@ -64,17 +67,24 @@ public class EmployeeController {
 	
 	
 	@PostMapping("/save")
-	public String saveEmployee(@ModelAttribute("employee") Employee theEmployee) {
+	public String saveEmployee(
+			@ModelAttribute("employee") @Valid Employee theEmployee,
+			BindingResult bindingResult) {
 		
-		// save the employee
-		employeeService.save(theEmployee);
-		
-		// use a redirect to prevent duplicate submissions
-		return "redirect:/employees/list";
+		if (bindingResult.hasErrors()) {
+			return "employees/employee-form";
+		}
+		else {		
+			// save the employee
+			employeeService.save(theEmployee);
+			
+			// use a redirect to prevent duplicate submissions
+			return "redirect:/employees/list";
+		}
 	}
 	
 	
-	@PostMapping("/delete")
+	@GetMapping("/delete")
 	public String delete(@RequestParam("employeeId") int theId) {
 		
 		// delete the employee
