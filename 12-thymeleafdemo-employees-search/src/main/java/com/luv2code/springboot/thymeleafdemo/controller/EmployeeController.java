@@ -94,6 +94,31 @@ public class EmployeeController {
 		return "redirect:/employees/list";
 		
 	}
+	
+	
+	@GetMapping("/search")
+	public String search(@RequestParam("firstName") String theFirstName,
+						 @RequestParam("lastName") String theLastName,
+						 Model theModel) {
+		
+		// check names, if both are empty then just give list of all employees
+
+		if (theFirstName.trim().isEmpty() && theLastName.trim().isEmpty()) {
+			return "redirect:/employees/list";
+		}
+		else {
+			// else, search by first name and last name
+			List<Employee> theEmployees =
+							employeeService.searchBy(theFirstName, theLastName);
+			
+			// add to the spring model
+			theModel.addAttribute("employees", theEmployees);
+			
+			// send to list-employees
+			return "employees/list-employees";
+		}
+		
+	}
 }
 
 

@@ -19,12 +19,31 @@
 	<h3>Employee Directory</h3>
 	<hr>
 	
-	<!-- Add a button -->
-	<a th:href="@{/employees/showFormForAdd}"
-		class="btn btn-primary btn-sm mb-3">
-		Add Employee
-	</a>
+	<!-- Add a search form -->
+
+	<form action="#" th:action="@{/employees/search}"
+		  method="GET" class="form-inline">	
+
+		<!-- Add a button -->
+		<a th:href="@{/employees/showFormForAdd}"
+			class="btn btn-primary btn-sm mb-3">
+			Add Employee
+		</a>
 	
+		<input type="search"
+			   name="firstName"
+			   placeholder="First name"
+			   class="form-control-sm ml-5 mr-2 mb-3" />
+
+		<input type="search"
+			   name="lastName"
+			   placeholder="Last name"
+			   class="form-control-sm mr-2 mb-3" />
+
+		<button type="submit"
+				class="btn btn-success btn-sm mb-3">Search</button>
+							   
+	</form>
 	
 	<table class="table table-bordered table-striped">
 		<thead class="thead-dark">
