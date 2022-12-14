@@ -48,7 +48,7 @@ public class EmployeeController {
 		return "employees/employee-form";
 	}
 
-	@GetMapping("/showFormForUpdate")
+	@PostMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
@@ -74,7 +74,7 @@ public class EmployeeController {
 	}
 	
 	
-	@GetMapping("/delete")
+	@PostMapping("/delete")
 	public String delete(@RequestParam("employeeId") int theId) {
 		
 		// delete the employee
