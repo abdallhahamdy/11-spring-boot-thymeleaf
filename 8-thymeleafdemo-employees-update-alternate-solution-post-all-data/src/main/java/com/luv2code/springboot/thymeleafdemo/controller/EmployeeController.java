@@ -48,7 +48,7 @@ public class EmployeeController {
 		return "employees/employee-form";
 	}
 
-	@GetMapping("/showFormForUpdate")
+	@PostMapping("/showFormForUpdate")
 	public String showFormForUpdate(@RequestParam("employeeId") int theId,
 									Model theModel) {
 		
