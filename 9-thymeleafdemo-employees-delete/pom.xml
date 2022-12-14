@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.luv2code.springboot</groupId>
-	<artifactId>36-thymeleafdemo-employees-update-alternate-solution-post-all-data</artifactId>
+	<artifactId>37-thymeleafdemo-employees-delete</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>thymeleafdemo</name>
 	<description>Demo project for Spring Boot</description>
